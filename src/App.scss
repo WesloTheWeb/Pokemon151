@@ -1,0 +1,45 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: 'pokeText';
+  src: local('Pokemon-GB'),
+    url("./assets/fonts/Pokemon-GB.ttf") format("truetype");
+}
+
+body {
+  background-color: $classicRed;
+}
+
+header {
+  text-align: center;
+}
+
+header > img {
+  width: 25rem;
+}
+
+footer {
+  color: #FFF;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

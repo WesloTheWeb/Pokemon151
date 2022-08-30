@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import './App.scss';
+import Header from './components/Header/Header';
+import SearchBar from './components/SearchBar/SearchBar';
+import PokemonDisplay from './components/PokemonDisplay/PokemonDisplay';
+import Footer from './components/Footer/Footer';
 
 function App() {
+
+  const [pokemonNumber, setPokemonNumber] = useState(9);
+
+  const handleSearch = (input) => {
+    setPokemonNumber(input.target.value);
+  };
+
+  useEffect(() => {
+    // TODO: Breakdown how Fetch works and why each code.
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
+      .then((foo) => foo.json())
+      .then((json) => {
+        console.log(json);
+      });
+  }, [pokemonNumber]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <SearchBar search={handleSearch} />
+      <PokemonDisplay />
+      <Footer />
+    </>
   );
 }
 
