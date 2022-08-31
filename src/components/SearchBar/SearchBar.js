@@ -13,16 +13,20 @@ const shortenInput = (input) => {
     return input.slice(0, 2);
 }
 
+ 
+
 const SearchBar = ({ search }) => {
     return (
         <section className={pokedexSearch} >
-            <input 
-                type="number" 
+            {/* {shortenInput(inputVal(search))} */}
+            <input
+                type="number"
                 onKeyDown={cleanInput}
-                onChange={search} 
+                onChange={search}
                 placeholder="Search by #"
-                maxLength={3}
-                />
+                pattern="/^-?\d+\.?\d*$/"
+                maxlength="3"
+            />
         </section>
     );
 };

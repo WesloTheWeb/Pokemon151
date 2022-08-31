@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.buttonStyle {
+    border: none;
+    cursor: pointer;
+    background-color: $classicCTA;
+    padding: 1rem;
+    border-radius: 10px;
+    box-sizing: content-box; 
+    font-size: 1.2rem;
+    font-family: pokeText;
+
+    &:hover {
+        background-color: $classicYellow;
+    }
+}

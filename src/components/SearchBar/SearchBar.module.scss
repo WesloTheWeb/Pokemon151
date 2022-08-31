@@ -1,8 +1,8 @@
 @import '../../variables.scss';
 
 .pokedexSearch {
-    margin: 2rem 0;
-    text-align: center;
+    margin: 2rem;
+    text-align: center; 
 
     input {
         background-color: $classicGreen;
@@ -11,6 +11,4 @@
         padding: .5rem 1.5rem;
         -webkit-appearance: none;
     }
-
-    
 }

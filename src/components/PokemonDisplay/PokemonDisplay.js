@@ -15,7 +15,7 @@ const PokemonDisplay = ({
     return (
         <section className={displayContainer}>
             <div>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/493.png" />
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" />
             </div>
             <div>
                 <div>
