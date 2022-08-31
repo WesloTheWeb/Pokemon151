@@ -19,17 +19,17 @@ const shortenInput = (input) => {
 
 const SearchBar = ({ search, PokeNum }) => {
     return (
-        <form className={pokedexSearch} >
+        <form className={pokedexSearch}  >
             {/* {shortenInput(inputVal(search))} */}
             <input
                 type="number"
                 min="0"
+                maxLength={3}
                 onKeyDown={search}
-                // onChange={search}
+                onChange={search}
                 value={PokeNum}
                 placeholder="Search by #"
                 pattern="[0-150]"
-                maxLength="3"
             />
             <Button name="Query"/>
         </form>
