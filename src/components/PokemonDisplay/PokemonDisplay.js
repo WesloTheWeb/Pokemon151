@@ -1,7 +1,7 @@
 import { React } from "react";
 import classes from './PokemonDisplay.module.scss';
 
-const { displayContainer, pokemonLabel, found } = classes;
+const { displayContainer, pokemonLabel, found, ...data } = classes;
 
 const PokemonDisplay = ({
     name,
@@ -15,7 +15,7 @@ const PokemonDisplay = ({
     return (
         <section className={displayContainer}>
             <div>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.name}.png`} alt="image" />
             </div>
             <div>
                 <div>

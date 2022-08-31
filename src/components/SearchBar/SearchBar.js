@@ -1,8 +1,10 @@
 import React from "react";
+import Button from "../Button/Button";
 import classes from './SearchBar.module.scss';
 
 const { pokedexSearch } = classes;
 
+// Gets rid of 'e' and '.' in input 
 const cleanInput = (input) => {
     // shortenInput(input);
     if (input.key == 'e' || input.key == '.') return input.preventDefault();
@@ -15,19 +17,22 @@ const shortenInput = (input) => {
 
  
 
-const SearchBar = ({ search }) => {
+const SearchBar = ({ search, PokeNum }) => {
     return (
-        <section className={pokedexSearch} >
+        <form className={pokedexSearch} >
             {/* {shortenInput(inputVal(search))} */}
             <input
                 type="number"
-                onKeyDown={cleanInput}
-                onChange={search}
+                min="0"
+                onKeyDown={search}
+                // onChange={search}
+                value={PokeNum}
                 placeholder="Search by #"
-                pattern="/^-?\d+\.?\d*$/"
-                maxlength="3"
+                pattern="[0-150]"
+                maxLength="3"
             />
-        </section>
+            <Button name="Query"/>
+        </form>
     );
 };
 

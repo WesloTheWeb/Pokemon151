@@ -15,24 +15,23 @@ function App() {
     // setTimeout(setPokemonNumber(input.target.value), 2000);
     let value = input.target.value;
     setPokemonNumber(value);
-
-    if (pokemonNumber > 151) {
-      setPokemonNumber(151);
-    }
-
-    if (pokemonNumber < 1) {
-      setPokemonNumber(0);
-    }
-
     console.log(pokemonNumber)
   };
+
+  if (pokemonNumber > 151) {
+    setPokemonNumber(151);
+  }
+
+  if (pokemonNumber < 1) {
+    setPokemonNumber(1);
+  }
 
   useEffect(() => {
     // TODO: Breakdown how Fetch works and why each code.
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
       .then((res) => res.json())
       .then((results) => {
-        console.log(results);
+        // console.log(results);
         setData({ results });
       });
 
@@ -42,10 +41,13 @@ function App() {
     <>
       <Header />
       <section className="controls">
-        <SearchBar search={handleSearch} />
-        <Button name='Search' />
+        <SearchBar 
+          search={handleSearch}
+          setPokeNum={setPokemonNumber} 
+          pokeNum={pokemonNumber} 
+        />
       </section>
-      <PokemonDisplay {...data} />
+      <PokemonDisplay data={data} />
       <Footer />
     </>
   );

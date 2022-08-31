@@ -5,6 +5,8 @@
     text-align: center; 
 
     input {
+        display: block;
+        margin: 1rem 0;
         background-color: $classicGreen;
         font-size: 1.3rem;
         font-family: pokeText;
