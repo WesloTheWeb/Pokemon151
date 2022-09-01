@@ -1,7 +1,7 @@
 import { React } from "react";
 import classes from './PokemonDisplay.module.scss';
 
-const { displayContainer, pokemonLabel, found, ...data } = classes;
+const { displayContainer, pokemonLabel, found } = classes;
 
 const PokemonDisplay = ({
     name,
@@ -10,33 +10,35 @@ const PokemonDisplay = ({
     abilities,
     types,
     picture,
-    pictureText
+    pictureText,
+    data
 }) => {
+    console.log(data.name);
     return (
         <section className={displayContainer}>
             <div>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.name}.png`} alt="image" />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`} alt="image" />
             </div>
             <div>
                 <div>
-                    <label className={pokemonLabel}>name: {name} </label>
-                    <span className={found}>{name}</span>
+                    <label className={pokemonLabel}>name:</label>
+                    <span className={found}>{data.name}</span>
                 </div>
                 <div>
-                    <label className={pokemonLabel}>height: {height} </label>
-                    <span className={found}>{height}</span>
+                    <label className={pokemonLabel}>height:</label>
+                    <span className={found}>{data.height}</span>
                 </div>
                 <div>
-                    <label className={pokemonLabel}>weight: {weight} </label>
-                    <span className={found}>{weight}</span>
+                    <label className={pokemonLabel}>weight:</label>
+                    <span className={found}>{data.weight}</span>
                 </div>
                 <div>
-                    <label className={pokemonLabel}>abilities: {abilities}</label>
-                    <span className={found}>{abilities}</span>
+                    <label className={pokemonLabel}>abilities:</label>
+                    <span className={found}></span>
                 </div>
                 <div>
-                    <label className={pokemonLabel}>types: {types} </label>
-                    <span className={found}>{types}</span>
+                    <label className={pokemonLabel}>types:</label>
+                    <span className={found}></span>
                 </div>
             </div>
 

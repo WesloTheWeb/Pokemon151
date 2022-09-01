@@ -10,10 +10,11 @@ function App() {
   const [pokemonNumber, setPokemonNumber] = useState('');
   const [data, setData] = useState({});
 
-  const handleSearch = (input) => {
+  const handleSearch = (e) => {
     // setTimeout(setPokemonNumber(input.target.value), 2000);
-    let value = input.target.value;
+    let value = e.target.value;
     const limit = 3
+
     setPokemonNumber(value.slice(0, limit));
     console.log(pokemonNumber)
     // input.preventDefault();
@@ -32,7 +33,7 @@ function App() {
       .then((res) => res.json())
       .then((results) => {
         console.log(results);
-        setData({ results });
+        setData(results);
       });
 
   }, [pokemonNumber]);
@@ -41,10 +42,10 @@ function App() {
     <>
       <Header />
       <section className="controls">
-        <SearchBar 
+        <SearchBar
           search={handleSearch}
-          setPokeNum={setPokemonNumber} 
-          pokeNum={pokemonNumber} 
+          setPokeNum={setPokemonNumber}
+          pokeNum={pokemonNumber}
         />
       </section>
       <PokemonDisplay data={data} />
