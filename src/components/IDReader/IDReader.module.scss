@@ -1,0 +1,13 @@
+@import '../../variables.scss';
+
+.container {
+    background-color: $idReader;
+    color: #fff;
+    font-family: PokeText;
+    font-size: 3.75rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 0 auto;
+
+}

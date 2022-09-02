@@ -15,14 +15,12 @@ const SearchBar = ({ search, PokeNum }) => {
         <form className={pokedexSearch}  >
             {/* {shortenInput(inputVal(search))} */}
             <input
-                type="number"
+                type="text"
                 min="0"
-                max="151"
                 maxLength={3}
                 onChange={search}
-                value={PokeNum > 151 ? 151 : PokeNum }
+                value={PokeNum}
                 placeholder="Search by #"
-                pattern="[0-150]"
             />
             {/* <Button name="Query"/> */}
         </form>

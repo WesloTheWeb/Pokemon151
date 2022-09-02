@@ -4,17 +4,23 @@ import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
 import PokemonDisplay from './components/PokemonDisplay/PokemonDisplay';
 import Footer from './components/Footer/Footer';
+import IDReader from './components/IDReader/IDReader';
 
 function App() {
 
   const [pokemonNumber, setPokemonNumber] = useState('');
   const [data, setData] = useState({});
+  const [error, isError] = useState(false);
 
   const handleSearch = (e) => {
-    // setTimeout(setPokemonNumber(input.target.value), 2000);
+    const limit = 3;
     let value = e.target.value;
-    const limit = 3
 
+    if (value > 151) {
+      isError(true);
+    } else {
+      isError(false);
+    }
     setPokemonNumber(value.slice(0, limit));
     console.log(pokemonNumber)
     // input.preventDefault();
@@ -34,13 +40,16 @@ function App() {
       .then((results) => {
         console.log(results);
         setData(results);
-      });
-
+      }); 
   }, [pokemonNumber]);
 
   return (
     <>
       <Header />
+      <IDReader 
+        error={error}
+        id={pokemonNumber} 
+      />
       <section className="controls">
         <SearchBar
           search={handleSearch}
