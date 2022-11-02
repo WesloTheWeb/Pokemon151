@@ -14,12 +14,9 @@ function App() {
 
   const handleChange = (evnt) => {
     let number = evnt.target.value;
-    const lastChar = number[number.length - 1];
     const regEx = /\D/g;
 
-    // if (isNaN(parseInt(lastChar))) return;
     setPokemonNumber(number.replaceAll(regEx, ""));
-    console.log(pokemonNumber);
 
     if (number > 151) {
       setPokemonNumber(151);
@@ -33,29 +30,10 @@ function App() {
     setPokemonNumber(1);
   };
 
-  const handleSearch = (evnt) => {
-    evnt.preventDefault();
-    let num = evnt.target.value;
-    const regEx = /\D/g;
-
-    // setPokemonNumber(value.slice(0, limit).replaceAll(regEx, ''));
-    setPokemonNumber(num.replaceAll(regEx, ""));
-
-    // console.log(pokemonNumber)
-
-    if (num > 151) {
-      setPokemonNumber(151);
-      isError(true);
-    } else {
-      isError(false);
-    }
-  };
-
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
       .then((res) => res.json())
       .then((results) => {
-        // console.log(results);
         setData(results);
       });
   }, [pokemonNumber]);
@@ -69,7 +47,7 @@ function App() {
       />
       <section className="controls">
         <SearchBar
-          search={handleChange}
+          handleChange={handleChange}
           pokeNum={pokemonNumber}
         />
       </section>

@@ -3,14 +3,14 @@ import classes from './SearchBar.module.scss';
 
 const { pokedexSearch } = classes;
 
-const SearchBar = ({ search, PokeNum }) => {
+const SearchBar = ({ handleChange, pokeNum }) => {
     return (
-        <form className={pokedexSearch}  >
+        <form className={pokedexSearch}>
             <input
                 type="text"
                 maxLength={3}
-                onChange={search}
-                value={PokeNum}
+                onChange={handleChange}
+                value={pokeNum}
                 placeholder="Search by Pokemon ID #"
             />
         </form>

@@ -19,10 +19,10 @@ const PokemonDisplay = ({
             <div>
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`} alt="image" />
             </div>
-            <div>
+            <section>
                 <div>
                     <label className={pokemonLabel}>name:</label>
-                    <span className={found}>{data.name}</span>
+                    <span className={found}>&nbsp;{data.name}</span>
                 </div>
                 <div>
                     <label className={pokemonLabel}>height:</label>
@@ -40,9 +40,7 @@ const PokemonDisplay = ({
                     <label className={pokemonLabel}>types:</label>
                     <span className={found}></span>
                 </div>
-            </div>
-
-            <img src={picture} alt={pictureText} />
+            </section>
         </section>
     );
 };
