@@ -1,19 +1,13 @@
 import { React } from "react";
 import classes from './PokemonDisplay.module.scss';
 
-const { displayContainer, pokemonLabel, found } = classes;
+const { statsText, displayContainer, pokemonLabel, found } = classes;
 
-const PokemonDisplay = ({
-    name,
-    height,
-    weight,
-    abilities,
-    types,
-    picture,
-    pictureText,
-    data
-}) => {
-    console.log(data.name);
+const PokemonDisplay = ({ data }) => {
+
+    const abilities = data.abilities;
+    const pokeTypes = data.types;
+
     return (
         <section className={displayContainer}>
             <div>
@@ -22,7 +16,7 @@ const PokemonDisplay = ({
             <section>
                 <div>
                     <label className={pokemonLabel}>name:</label>
-                    <span className={found}>&nbsp;{data.name}</span>
+                    <span className={found}>{data.name}</span>
                 </div>
                 <div>
                     <label className={pokemonLabel}>height:</label>
@@ -30,14 +24,33 @@ const PokemonDisplay = ({
                 </div>
                 <div>
                     <label className={pokemonLabel}>weight:</label>
-                    <span className={found}>{data.weight}</span>
+                    <span className={found}>{data.weight} pounds</span>
                 </div>
                 <div>
-                    <label className={pokemonLabel}>abilities:</label>
-                    <span className={found}></span>
+                    <label className={pokemonLabel}>abilities</label>
+                    {abilities?.map((move) => {
+                        return (
+                            <div
+                                key={move.slot}
+                                className={statsText}
+                            >
+                                {move.ability.name}
+                            </div>
+                        )
+                    })}
                 </div>
                 <div>
                     <label className={pokemonLabel}>types:</label>
+                    {pokeTypes?.map((type) => {
+                        return (
+                            <div
+                                key={type.slot}
+                                className={statsText}
+                            >
+                                {type.type.name}
+                            </div>
+                        )
+                    })}
                     <span className={found}></span>
                 </div>
             </section>

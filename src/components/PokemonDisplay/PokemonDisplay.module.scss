@@ -26,9 +26,16 @@
 
     .found {
         color: #ccc;
+        padding-left: 0.25rem;
         display: inline-block;
         font-weight: bold;
         font-size: 1.75rem;
         text-transform: capitalize;
+    }
+
+    .statsText {
+        color: black;
+        font-family: 'pokeText';
+        font-weight: bold;
     }
 }
