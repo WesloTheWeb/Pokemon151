@@ -1,7 +1,10 @@
 import { React } from "react";
 import classes from './PokemonDisplay.module.scss';
 
-const { statsText, displayContainer, pokemonLabel, found, pokemonType, bugType } = classes;
+const { statsText, displayContainer, pokemonLabel, found, pokemonType,
+    bugType, dragonType, electricType, fightingType, fireType,
+    flyingType, ghostType, grassType, groundType, iceType,
+    normalType, poisonType, psychicType, rockType, waterType } = classes;
 
 const PokemonDisplay = ({ data }) => {
 
@@ -10,8 +13,50 @@ const PokemonDisplay = ({ data }) => {
 
     const determineType = (pokeType) => {
         switch (pokeType) {
-            case 'poison':
+            case 'bug':
                 return bugType
+
+            case 'dragon':
+                return dragonType
+
+            case 'electric':
+                return electricType
+
+            case 'fighting':
+                return fightingType
+
+            case 'fire':
+                return fireType
+
+            case 'flying':
+                return flyingType
+
+            case 'ghost':
+                return ghostType
+
+            case 'grass':
+                return grassType
+
+            case 'ground':
+                return groundType
+
+            case 'ice':
+                return iceType
+
+            case 'poison':
+                return poisonType
+
+            case 'psychic':
+                return psychicType
+
+            case 'rock':
+                return rockType
+
+            case 'water':
+                return waterType
+
+            default:
+                return normalType
         }
     };
 
@@ -52,7 +97,7 @@ const PokemonDisplay = ({ data }) => {
                         return (
                             <div
                                 key={type.slot}
-                                className={`${statsText} ${pokemonType} ${type.slot % 2 == 0 ? 'uwu' : 'owo'}`}
+                                className={`${statsText} ${pokemonType} ${determineType(type.type.name)}`}
                             >
                                 {type.type.name}
                             </div>

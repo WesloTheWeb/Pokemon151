@@ -44,15 +44,70 @@
         padding: 1rem;
         width: 15%;
         border-radius: 10px;
+        border: 3px solid #000;
         background-color: white;
         margin: 1rem auto;
+        color: #000;
     }
 
     .bugType {
         background-color: $bug;
     }
 
+    .dragonType {
+        background-color: $dragon;
+    }
+
+    .electricType {
+        background-color: $electric;
+    }
+
+    .fightingType {
+        background-color: $fighting;
+    }
+
+    .fireType {
+        background-color: $fire;
+    }
+
+    .flyingType {
+        background-color: $flying;
+    }
+
+    .ghostType {
+        background-color: $ghost;
+    }
+
+    .grassType {
+        background-color: $grass;
+    }
+
+    .groundType {
+        background-color: $ground;
+    }
+
+    .iceType {
+        background-color: $ice;
+    }
+
+    .normalType {
+        background-color: $normal;
+    }
+
     .poisonType {
         background-color: $poison;
+        color: white;
+    }
+
+    .psychicType {
+        background-color: $psychic;
+    }
+
+    .rockType {
+        background-color: $rock;
+    }
+
+    .waterType {
+        background-color: $water;
     }
 }
