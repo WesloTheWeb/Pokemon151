@@ -1,12 +1,19 @@
 import { React } from "react";
 import classes from './PokemonDisplay.module.scss';
 
-const { statsText, displayContainer, pokemonLabel, found } = classes;
+const { statsText, displayContainer, pokemonLabel, found, pokemonType, bugType } = classes;
 
 const PokemonDisplay = ({ data }) => {
 
     const abilities = data.abilities;
     const pokeTypes = data.types;
+
+    const determineType = (pokeType) => {
+        switch (pokeType) {
+            case 'poison':
+                return bugType
+        }
+    };
 
     return (
         <section className={displayContainer}>
@@ -45,7 +52,7 @@ const PokemonDisplay = ({ data }) => {
                         return (
                             <div
                                 key={type.slot}
-                                className={statsText}
+                                className={`${statsText} ${pokemonType} ${type.slot % 2 == 0 ? 'uwu' : 'owo'}`}
                             >
                                 {type.type.name}
                             </div>

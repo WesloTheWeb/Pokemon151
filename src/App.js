@@ -8,7 +8,7 @@ import IDReader from './components/IDReader/IDReader';
 
 function App() {
 
-  const [pokemonNumber, setPokemonNumber] = useState("");
+  const [pokemonNumber, setPokemonNumber] = useState(1);
   const [data, setData] = useState({});
   const [error, isError] = useState(false);
 
@@ -26,7 +26,7 @@ function App() {
     };
   };
 
-  if (pokemonNumber < 1) {
+  if (pokemonNumber < 0) {
     setPokemonNumber(1);
   };
 
