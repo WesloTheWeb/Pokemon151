@@ -6,6 +6,9 @@ import PokemonDisplay from './components/PokemonDisplay/PokemonDisplay';
 import Footer from './components/Footer/Footer';
 import IDReader from './components/IDReader/IDReader';
 
+
+// TODO: Prep and clean the code optimize and refactor.
+// TODO: Mobile responsive media queries.
 function App() {
 
   const [pokemonNumber, setPokemonNumber] = useState(1);
@@ -26,8 +29,16 @@ function App() {
     };
   };
 
-  if (pokemonNumber < 0) {
+  if (pokemonNumber <= 0) {
     setPokemonNumber(1);
+  };
+
+  const moveUp = () => {
+    return setPokemonNumber(pokemonNumber + 1);
+  };
+
+  const moveDown = () => {
+    return setPokemonNumber(pokemonNumber - 1);
   };
 
   useEffect(() => {
@@ -49,6 +60,8 @@ function App() {
         <SearchBar
           handleChange={handleChange}
           pokeNum={pokemonNumber}
+          moveUp={moveUp}
+          moveDown={moveDown}
         />
       </section>
       <PokemonDisplay data={data} />

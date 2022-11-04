@@ -1,11 +1,16 @@
 import React from 'react';
 import classes from './Button.module.scss';
 
-const { buttonStyle } = classes;
+const { buttonStyle, controls } = classes;
 
-const Button = ({ name }) => {
+const Button = ({ name, clicked }) => {
     return (
-        <button className={buttonStyle}>{name}</button>
+        <button
+            className={`${buttonStyle} ${controls}`}
+            onClick={clicked}
+            >
+            {name}
+        </button>
     );
 };
 
